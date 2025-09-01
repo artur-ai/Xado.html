@@ -1,0 +1,289 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .main-header {
+    background-color: #d62828;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .main-header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  
+  .main-nav a:hover {
+    color: #ffc300;
+  }
+  
+  /**/
+  .button-wrapper {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .button-wrapper button {
+    background-color: #c00;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .button-wrapper button:hover {
+    background-color: #a00;
+  }
+
+  #about-store {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 40px;
+    border-left: 6px solid #c00;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+  }
+
+  #about-store h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #c00;
+  }
+
+  #about-store h3 {
+    font-size: 22px;
+    margin-top: 30px;
+    color: #c00;
+  }
+
+  #about-store p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+
+  a {
+    color: #c00;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .hero {
+    background-image: url('images/xado.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 170px 20px;
+    text-align: center;
+    border-radius: 12px;
+    position: relative;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    border-radius: 12px;
+  }
+  
+  .hero h2,
+  .hero p {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .btn {
+    background: #d50000;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+  
+  footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+  }
+  
+
+
+/* Категорії */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .category-card {
+    position: relative;
+    height: 300px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: end;
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .category-name {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+
+  /* carusel */
+
+  .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.category-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 300px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: end;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.category-card:hover {
+  transform: scale(1.03);
+}
+
+.category-name {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #d50000;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.map {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+  
