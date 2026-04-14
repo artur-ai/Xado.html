@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оливи XADO</title>
+  <link rel="stylesheet" href="olyvy.css">
+</head>
+<body>
+ 
+  <header class="main-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">XADO</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/index.html#about-store">Про нас</a></li>
+          <li><a href="/index.html#categories">Категорії</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+      
+
+  <main class="container">
+    <h2 class="section-title">Оливи</h2>
+
+
+   <!-- Кнопка для показу/приховання фільтрів -->
+<div style="text-align:center; margin: 20px 0;">
+  <button id="toggleFiltersBtn" onclick="toggleFilters()">Показати фільтри</button>
+</div>
+
+<!-- Фільтри спочатку приховані -->
+<div id="filters" style="text-align:center; margin: 20px 0; display: none;">
+  <button onclick="filterItems('10w40')">10W-40</button>
+  <button onclick="filterItems('5W30')">5W-30</button>
+  <button onclick="filterItems('5W40')">5W-40</button>
+  <button onclick="filterItems('Трансмісійна')">Трансмісійна</button>
+
+  <button onclick="showAll()">Показати всі</button>
+  <button onclick="clearFilters()">Прибрати всі фільтри</button>
+</div>
+
+<!-- Повідомлення для користувача -->
+<div id="message" style="text-align:center; margin: 20px 0;">
+  Будь ласка, оберіть фільтр, щоб побачити товари.
+</div>
+
+<!-- Список товарів -->
+<div id="products" style="display:none;">
+  <!-- Тут твій код з товарами -->
+   <!--10W40-->
+  <a href="../../products/olyvy/10w40 SHPD 1L.html" class="product-item 10w40">
+    <h3>Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST 1л напівсинтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/10W40 SHPD 4L.html" class="product-item 10w40">
+    <h3>Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST 4л напівсинтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/10w40 SHPD 5l.html" class="product-item 10w40">
+    <h3>Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST 5л напівсинтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/10w40 slcf 1l.html" class="product-item 10w40">
+    <h3>Моторна олива XADO Atomic Oil 10W-40 SL/CF RED BOOST 1л напівсинтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/10w40 sl.cf 4l.html" class="product-item 10w40">
+    <h3>Моторна олива XADO Atomic Oil 10W-40 SL/CF RED BOOST 4л напівсинтетична</h3>
+  </a>
+
+
+  <!--5W30-->
+  <a href="../../products/olyvy/5w30 504-507 1l.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 504/507 RED BOOST 1л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w30 504.507 4l.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 504/507 RED BOOST 4л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w30 a5.b5 1l.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 A5/B5 RED BOOST 1л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w30 a5.b5 4l.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 A5/B5 RED BOOST 4л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w30 c3pro 1l.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 C3 Pro RED BOOST 1л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w30 c3pro 4l.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 C3 Pro RED BOOST 4л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w30 c23.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 C23 RED BOOST 1л</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w30 c23.html" class="product-item 5W30">
+    <h3>Моторна олива XADO Atomic Oil 5W-30 C23 RED BOOST 4л</h3>
+  </a>
+
+  <!--5w40-->
+
+  <a href="../../products/olyvy/5w40 c3 1l.html" class="product-item 5W40">
+    <h3>Моторна олива XADO Atomic Oil 5W-40 C3 RED BOOST 1л синтетична</h3>
+  </a>
+  <a href="../../products/olyvy/5w40 c3 4l.html" class="product-item 5W40">
+    <h3>Моторна олива XADO Atomic Oil 5W-40 C3 RED BOOST 4л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w40 sl.cf 1l.html" class="product-item 5W40">
+    <h3>Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST 1л синтетична</h3>
+  </a>
+  <a href="../../products/olyvy/5w40 sl.cf 4l.html" class="product-item 5W40">
+    <h3>Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST 4л синтетична</h3>
+  </a>
+
+  <a href="../../products/olyvy/5w40 sn.html" class="product-item 5W40">
+    <h3>Моторна олива XADO Atomic Oil 5W-40 SN RED BOOST 1л синтетична</h3>
+  </a>
+  <a href="../../products/olyvy/5w40 sn 4l.html" class="product-item 5W40">
+    <h3>Моторна олива XADO Atomic Oil 5W-40 SN RED BOOST 4л синтетична</h3>
+  </a>
+
+  <!--Transmisia-->
+  <a href="../../products/olyvy/80w90.html" class="product-item Трансмісійна ">
+    <h3>Трансмісійна олива XADO Atomic Oil 80W-90 GL-3/4/5 RED BOOST</h3>
+  </a>
+  <a href="../../products/olyvy/75w90.html" class="product-item Трансмісійна">
+    <h3>Трансмісійна олива XADO Atomic Oil 75W-90 GL 3/4/5 RED BOOST</h3>
+  </a>
+
+  <a href="../../products/olyvy/75w gl.4.html" class="product-item Трансмісійна">
+    <h3>XADO Atomic Oil 75W GL-4 SYNTHETIC Luxury Drive (rs)</h3>
+  </a>
+
+  <a href="../../products/olyvy/75w80.html" class="product-item Трансмісійна">
+    <h3>Трансмісійна олива XADO Atomic Oil 75W-80 GL 4 RED BOOST</h3>
+  </a>
+
+  <a href="../../products/olyvy/atf 3.4.5.html" class="product-item Трансмісійна">
+    <h3>Трансмісійна олива XADO Atomic Oil ATF III/IV/V RED BOOST</h3>
+  </a>
+
+  <a href="../../products/olyvy/atf 3.html" class="product-item Трансмісійна">
+    <h3>Трансмісійна олива XADO Atomic Oil ATF III RED BOOST</h3>
+  </a>
+
+  <a href="../../products/olyvy/atf 6.html" class="product-item Трансмісійна">
+    <h3>Трансмісійна олива XADO Atomic Oil ATF VI RED BOOST</h3>
+  </a>
+
+
+
+
+</div>
+
+
+
+<script>
+  function toggleFilters() {
+    const filters = document.getElementById('filters');
+    const btn = document.getElementById('toggleFiltersBtn');
+    if (filters.style.display === 'none') {
+      filters.style.display = 'block';
+      btn.textContent = 'Сховати фільтри';
+    } else {
+      filters.style.display = 'none';
+      btn.textContent = 'Показати фільтри';
+    }
+  }
+
+  function filterItems(filterClass) {
+    const items = document.querySelectorAll('#products .product-item');
+    const productsDiv = document.getElementById('products');
+    const message = document.getElementById('message');
+
+    let anyVisible = false;
+
+    items.forEach(item => {
+      if (item.classList.contains(filterClass)) {
+        item.style.display = '';
+        anyVisible = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    if (anyVisible) {
+      productsDiv.style.display = 'block';
+      message.style.display = 'none';
+    } else {
+      productsDiv.style.display = 'none';
+      message.textContent = 'Товарів за цим фільтром не знайдено.';
+      message.style.display = 'block';
+    }
+  }
+
+  function showAll() {
+    const items = document.querySelectorAll('#products .product-item');
+    const productsDiv = document.getElementById('products');
+    const message = document.getElementById('message');
+
+    items.forEach(item => item.style.display = '');
+    productsDiv.style.display = 'block';
+    message.style.display = 'none';
+  }
+
+  function clearFilters() {
+    // Прибираємо фільтри, ховаємо товари і показуємо повідомлення
+    const items = document.querySelectorAll('#products .product-item');
+    const productsDiv = document.getElementById('products');
+    const message = document.getElementById('message');
+
+    items.forEach(item => item.style.display = 'none');
+    productsDiv.style.display = 'none';
+
+    message.textContent = 'Будь ласка, оберіть фільтр, щоб побачити товари.';
+    message.style.display = 'block';
+  }
+</script>
+
+
+
+
+    <a href="../../products/olyvy/10w40 SHPD 1L.html" class="product-link">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w40 shpd 1l.jpg" alt="Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST напівсинтетична" />
+        <h3>Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST напівсинтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">370 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/10W40 SHPD 4L.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w40 SHPD 4L.jpg" alt=" Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST напівсинтетична" />
+        <h3>Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST напівсинтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1380 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a  href="../../products/olyvy/10w40 SHPD 5l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w40 5l.jpg" alt=" Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST напівсинтетична" />
+        <h3> Моторна олива XADO Atomic Oil 10W-40 SHPD (SL/CI-4) RED BOOST напівсинтетична</h3>
+        <div class="price-line">
+          <span class="volume">5 л</span>
+          <span class="price">1700 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w40 c3 1l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 c3 1l.jpg" alt="Моторна олива XADO Atomic Oil 5W-40 C3 RED BOOST синтетична" />
+        <h3>1</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">480 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w40 c3 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 c3 4l.jpg" alt="Моторна олива XADO Atomic Oil 5W-40 C3 RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-40 C3 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1780 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/4t.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/4t.jpg" alt="Моторна олива XADO Atomic Oil 10W-40 4T MA2 RED BOOST  " />
+        <h3> Моторна олива XADO Atomic Oil 10W-40 4T MA2 RED BOOST  </h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">470 грн</span>
+        </div>
+      </div>
+    </a>
+      
+    <a href="../../products/olyvy/2t.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/2t.jpg" alt="Моторна олива для мототехніки XADO Atomic Oil 2T FC/FD RED BOOST" />
+        <h3> Моторна олива для мототехніки XADO Atomic Oil 2T FC/FD RED BOOST </h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">510 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/10w40 slcf 1l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w40. sl:cf 1l.jpg" alt="Моторна олива XADO Atomic Oil 10W-40 SL/CF RED BOOST напівсинтетична" />
+        <h3> Моторна олива XADO Atomic Oil 10W-40 SL/CF RED BOOST напівсинтетична </h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">360 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/10w40 sl.cf 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w40 sl:cf 4l.jpg" alt="Моторна олива XADO Atomic Oil 10W-40 SL/CF RED BOOST напівсинтетична" />
+        <h3> Моторна олива XADO Atomic Oil 10W-40 SL/CF RED BOOST напівсинтетична </h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1290 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w30 504-507 1l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 504:507 1l.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 504/507 RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-30 504/507 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">500 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w30 504.507 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 504:507.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 504/507 RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-30 504/507 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1940 грн</span>
+        </div>
+      </div>
+      </a>
+
+      <a href="../../products/olyvy/5w30 c3pro 1l.html" class="product-link"> 
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 c3pro 1l.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 C3 Pro RED BOOST синтетична" />
+        <h3>1</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">480 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w30 c3pro 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 c3 pro 4l.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 C3 Pro RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-30 C3 Pro RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1830 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w40 sn.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 sn 1l.jpg" alt="АМоторна олива XADO Atomic Oil 5W-40 SN RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-40 SN RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">400 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w40 sn 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 sn 4l.jpg" alt="АМоторна олива XADO Atomic Oil 5W-40 SN RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-40 SN RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1580 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w40 sl.cf 1l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 sl:cf 1l.jpg" alt="Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">450 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w40 sl.cf 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 sl:cf 4l.jpg" alt="Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1750 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/75w90.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/75w90.jpg" alt="Трансмісійна олива XADO Atomic Oil 75W-90 GL 3/4/5 RED BOOST" />
+        <h3> Трансмісійна олива XADO Atomic Oil 75W-90 GL 3/4/5 RED BOOST</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">620 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/75w80.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/75w80.jpg" alt="Трансмісійна олива XADO Atomic Oil 75W-80 GL 4 RED BOOST" />
+        <h3> Трансмісійна олива XADO Atomic Oil 75W-80 GL 4 RED BOOST</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">650 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/0w20 1l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/0w20 1l.jpg" alt="Моторна олива XADO Atomic Oil 0W-20 SP RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 0W-20 SP RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">550 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/0w20 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/0w20 4l.jpg" alt="Моторна олива XADO Atomic Oil 0W-20 SP RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 0W-20 SP RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">2100 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w30 a5.b5 1l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 a5b5 1l.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 A5/B5 RED BOOST синтетична " />
+        <h3>Моторна олива XADO Atomic Oil 5W-30 A5/B5 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">550 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w30 a5.b5 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 a5b5 4l.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 A5/B5 RED BOOST синтетична " />
+        <h3>Моторна олива XADO Atomic Oil 5W-30 A5/B5 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">2100 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/atf 3.4.5.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/atf 3 45.jpg" alt="Трансмісійна олива XADO Atomic Oil ATF III/IV/V RED BOOST" />
+        <h3>Трансмісійна олива XADO Atomic Oil ATF III/IV/V RED BOOST</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">520 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/80w90.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/80w90.jpg" alt="Трансмісійна олива XADO Atomic Oil 80W-90 GL-3/4/5 RED BOOST" />
+        <h3>Трансмісійна олива XADO Atomic Oil 80W-90 GL-3/4/5 RED BOOST</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">450 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/10w60 4t.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w60.jpg" alt="Моторна олива XADO Atomic Oil 10W-60 4T MA2 RED BOOST синтетична" />
+        <h3>Моторна олива XADO Atomic Oil 10W-60 4T MA2 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">700 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/5w50.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w50 1l.jpg" alt="Моторна олива XADO Atomic Oil 5W-50 SN RED BOOST синтетична" />
+        <h3>Моторна олива XADO Atomic Oil 5W-50 SN RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">480 грн</span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="../../products/olyvy/atf 3.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/atf 3.jpg" alt="Трансмісійна олива XADO Atomic Oil ATF III RED BOOST" />
+        <h3> Трансмісійна олива XADO Atomic Oil ATF III RED BOOST</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">500 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/15w40 1l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/15w40 1l.jpg" alt="Моторна олива XADO Atomic Oil 15W-40 SHPD MCF RED BOOST мінеральна" />
+        <h3>Моторна олива XADO Atomic Oil 15W-40 SHPD MCF RED BOOST мінеральна</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">380 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/15w40 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/15w40 4l.jpg" alt="Моторна олива XADO Atomic Oil 15W-40 SHPD MCF RED BOOST мінеральна" />
+        <h3>Моторна олива XADO Atomic Oil 15W-40 SHPD MCF RED BOOST мінеральна</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1390 грн</span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="../../products/olyvy/atf 6.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/atf 6.jpg" alt="Трансмісійна олива XADO Atomic Oil ATF VI RED BOOST" />
+        <h3>Трансмісійна олива XADO Atomic Oil ATF VI RED BOOST</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">580 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/10w30.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w30 1l.jpg" alt="Моторна олива XADO Atomic Oil 10W-30 SN RED BOOST" />
+        <h3>Моторна олива XADO Atomic Oil 10W-30 SN RED BOOST</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">450 грн</span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="../../products/olyvy/5w30 c23.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 c23 1l.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 C23 RED BOOST синтетична" />
+        <h3>Моторна олива XADO Atomic Oil 5W-30 C23 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">460 грн</span>
+        </div>
+      </div>
+    </a>
+
+
+    <a href="../../products/olyvy/5w30 c23 4l.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30 c23 4l.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 C23 RED BOOST синтетична" />
+        <h3>Моторна олива XADO Atomic Oil 5W-30 C23 RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="volume">4 л</span>
+          <span class="price">1770 грн</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../../products/olyvy/75w gl.4.html" class="product-link">
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/75wgl4.jpg" alt="Трансмісійна олива XADO Atomic Oil 75W GL-4 SYNTHETIC Luxury Drive (rs)" />
+        <h3>Трансмісійна олива XADO Atomic Oil 75W GL-4 SYNTHETIC Luxury Drive (rs)</h3>
+        <div class="price-line">
+          <span class="volume">1 л</span>
+          <span class="price">610 грн</span>
+        </div>
+      </div>
+    </a>
+
+      <div class="product-card">
+        <img src="catalog/images_of_products/оливи/10W40BenzRozliv.jpg" alt="Олива моторна XADO Atomic oil Pro-industry 10W-40 SL/CI-4 напівсинтетична" />
+        <h3> Олива моторна XADO Atomic oil Pro-industry 10W-40 SL/CI-4 напівсинтетична</h3>
+        <div class="price-line">
+          <span class="price">280 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 sl:cf rozliv.jpg" alt="Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-40 SL/CF RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="price">320 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/10w40DieselRozliv.jpg" alt="  Олива моторна XADO Atomic oil Pro-industry 10W-40 SL/CI-4 Diesel напівсинтетична" />
+        <h3> Олива моторна XADO Atomic oil Pro-industry 10W-40 SL/CI-4 Diesel напівсинтетична</h3>
+        <div class="price-line">
+          <span class="price">260 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w40 sn rozliv.jpg" alt="Моторна олива XADO Atomic Oil 5W-40 SN RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-40 SN RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="price">360 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/75w90 rozliv.jpg" alt="Трансмісійна олива XADO Atomic Oil 75W-90 GL 3/4/5 RED BOOST" />
+        <h3> Трансмісійна олива XADO Atomic Oil 75W-90 GL 3/4/5 RED BOOST</h3>
+        <div class="price-line">
+          <span class="price">460 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/4t rozliv.jpg" alt="Моторна олива XADO Atomic Oil 10W-40 4T MA2 RED BOOST" />
+        <h3> Моторна олива XADO Atomic Oil 10W-40 4T MA2 RED BOOST</h3>
+        <div class="price-line">
+          <span class="price">340 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/15w40Rozliv.jpg" alt="Моторна олива XADO Atomic Oil 15W-40 SHPD MCF RED BOOST мінеральна" />
+        <h3> Моторна олива XADO Atomic Oil 15W-40 SHPD MCF RED BOOST мінеральна</h3>
+        <div class="price-line">
+          <span class="price">340 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/5w30Rozliv.jpg" alt="Моторна олива XADO Atomic Oil 5W-30 C3 Pro RED BOOST синтетична" />
+        <h3> Моторна олива XADO Atomic Oil 5W-30 C3 Pro RED BOOST синтетична</h3>
+        <div class="price-line">
+          <span class="price">400 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/80w90Rozliv.jpg" alt="Трансмісійна олива XADO Atomic Oil 80W-90 GL-3/4/5 RED BOOST" />
+        <h3> Трансмісійна олива XADO Atomic Oil 80W-90 GL-3/4/5 RED BOOST</h3>
+        <div class="price-line">
+          <span class="price">380 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="../../catalog/images_of_products/оливи/2TRozliv.jpg" alt="Моторна олива для мототехніки XADO Atomic Oil 2T FC/FD RED BOOST" />
+        <h3> Моторна олива для мототехніки XADO Atomic Oil 2T FC/FD RED BOOST</h3>
+        <div class="price-line">
+          <span class="price">360 грн/ за 1л (тільки в магазині)</span>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <section class="map">
+      <h2>Ми знаходимося тут:</h2>
+      <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d165.24374415397378!2d32.26845571597863!3d48.49681130613009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d0690062df006b%3A0x6a8c36194f6fa962!2zWGFkbyDQmtGA0L7Qv9C40LLQvdC40YbRjNC60LjQuQ!5e0!3m2!1suk!2sua!4v1775631533411!5m2!1suk!2sua" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer style="background-color: #fff; border-top: 4px solid #d32f2f; padding: 30px 20px; padding-left: 200px; font-family: Arial, sans-serif; max-width: 1300px; margin: 40px auto 20px auto;  border-radius: 0 0 12px 12px; box-shadow: 0 -3px 10px rgba(0,0,0,0.05); color: #000;">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+      
+      <div style="flex: 1; min-width: 250px;">
+        <h3 style="color: #d32f2f; margin-top: 0;">Графік роботи</h3>
+        <p>Пн–Сб: 09:00 – 16:00</p>
+        <p>Нд: 09:00 – 13:00</p>
+      </div>
+  
+      <div style="flex: 1; min-width: 250px;" id="contact">
+        <h3 style="color: #d32f2f; margin-top: 0;">Контакти</h3>
+        <p>Телефон: <a href="tel:+38 (050) 585-07-26" style="color: #d32f2f; text-decoration: none;">+38 (050) 585-07-26</a></p>
+        <p>Email: <a href="mailto:info@yourshop.com" style="color: #d32f2f; text-decoration: none;">xado.krop@ukr.net</a></p>
+        <p>Адреса: вул. Кропивницького, 184, авторинок Клинцівський</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+</html>
