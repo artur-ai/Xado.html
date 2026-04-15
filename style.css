@@ -1,210 +1,200 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: hidden; /* Прибирає білий відступ справа */
+  width: 100%;
+}
+
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f9f9f9;
-    color: #333;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .main-header {
-    background-color: #d62828;
-    color: #fff;
-    padding: 20px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .main-header .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .main-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-  
-  .main-nav a:hover {
-    color: #ffc300;
-  }
-  
-  /**/
-  .button-wrapper {
-    text-align: center;
-    margin: 40px 0;
-  }
+  font-family: sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-  .button-wrapper button {
-    background-color: #c00;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+a {
+  color: #c00;
+  text-decoration: none;
+}
 
-  .button-wrapper button:hover {
-    background-color: #a00;
-  }
+a:hover {
+  text-decoration: underline;
+}
 
-  #about-store {
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 40px;
-    border-left: 6px solid #c00;
-    border-radius: 12px;
-    background-color: #f9f9f9;
-  }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-  #about-store h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #c00;
-  }
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
 
-  #about-store h3 {
-    font-size: 22px;
-    margin-top: 30px;
-    color: #c00;
-  }
+/* ===== HEADER ===== */
+.main-header {
+  background-color: #d62828;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
-  #about-store p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 12px 0;
-  }
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+}
 
-  a {
-    color: #c00;
-    text-decoration: none;
-  }
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+/* ===== NAVIGATION ===== */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
-  .hero {
-    background-image: url('images/xado.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 170px 20px;
-    text-align: center;
-    border-radius: 12px;
-    position: relative;
-  }
-  
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-    border-radius: 12px;
-  }
-  
-  .hero h2,
-  .hero p {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .btn {
-    background: #d50000;
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 6px;
-  }
-  
-  footer {
-    background: #222;
-    color: #ccc;
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-  }
-  
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
 
+.main-nav a:hover {
+  color: #ffc300;
+}
 
-/* Категорії */
+/* ===== HERO ===== */
+.hero {
+  background-image: url('images/xado.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+  margin: 16px 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1;
+  border-radius: 12px;
+}
+
+.hero h2,
+.hero p,
+.hero .btn {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  background: #d50000;
+  color: white;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #a00;
+  text-decoration: none;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 40px 0;
+}
+
 .section-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .category-card {
-    position: relative;
-    height: 300px;
-    border-radius: 16px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: end;
-    text-decoration: none;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-  
-  .category-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .category-name {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #c00;
+}
 
+/* ===== ABOUT ===== */
+#about-store {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  border-left: 5px solid #c00;
+  border-radius: 0 12px 12px 0;
+  background: #fff;
+}
 
-  /* carusel */
+#about-store h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #c00;
+}
 
-  .carousel-wrapper {
+#about-store h3 {
+  font-size: 1.2rem;
+  margin-top: 24px;
+  color: #c00;
+}
+
+#about-store p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+/* ===== CATEGORIES GRID ===== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+/* ===== CAROUSEL ===== */
+.carousel-wrapper {
   position: relative;
   overflow: hidden;
 }
@@ -213,27 +203,28 @@ body {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 20px;
-  padding: 20px 0;
+  gap: 14px;
+  padding: 10px 0 16px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel-container::-webkit-scrollbar {
   display: none;
 }
 
+/* ===== CATEGORY CARD ===== */
 .category-card {
   flex: 0 0 auto;
-  width: 250px;
-  height: 300px;
-  border-radius: 16px;
+  width: 200px;
+  height: 260px;
+  border-radius: 14px;
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   text-decoration: none;
   overflow: hidden;
   transition: transform 0.3s ease;
-  position: relative;
 }
 
 .category-card:hover {
@@ -241,14 +232,16 @@ body {
 }
 
 .category-name {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0,0,0,0.6);
   color: white;
   width: 100%;
-  padding: 20px;
+  padding: 16px;
   text-align: center;
+  font-size: 0.95rem;
   font-weight: bold;
 }
 
+/* ===== CAROUSEL BUTTONS ===== */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -256,23 +249,46 @@ body {
   background: #d50000;
   color: white;
   border: none;
-  font-size: 2rem;
-  padding: 10px 15px;
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   z-index: 2;
   border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.carousel-btn.prev {
-  left: 10px;
+.carousel-btn.prev { left: 6px; }
+.carousel-btn.next { right: 6px; }
+
+/* ===== BUTTON WRAPPER ===== */
+.button-wrapper {
+  text-align: center;
+  margin: 30px 0;
 }
 
-.carousel-btn.next {
-  right: 10px;
+.button-wrapper button {
+  background-color: #c00;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
 }
 
+.button-wrapper button:hover {
+  background-color: #a00;
+}
+
+/* ===== MAP ===== */
 .map {
-  margin: 50px auto;
+  margin: 40px auto;
   text-align: center;
 }
 
@@ -282,8 +298,78 @@ body {
   margin: auto;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
+/* ===== FOOTER ===== */
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px 16px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
 
-  
+/* ===== TABLET (540px+) ===== */
+@media (min-width: 540px) {
+  .hero {
+    padding: 100px 30px;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .category-card {
+    width: 230px;
+    height: 280px;
+  }
+}
+
+/* ===== DESKTOP (768px+) ===== */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+
+  .main-nav ul {
+    gap: 24px;
+  }
+
+  .main-nav a {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 140px 40px;
+  }
+
+  .hero h2 {
+    font-size: 2.4rem;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .category-card {
+    width: 250px;
+    height: 300px;
+  }
+
+  #about-store {
+    padding: 36px 40px;
+  }
+}
+
+/* ===== LARGE DESKTOP (1024px+) ===== */
+@media (min-width: 1024px) {
+  .hero {
+    padding: 170px 60px;
+  }
+}
