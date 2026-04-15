@@ -1,4 +1,2 @@
-cat > netlify.toml << 'EOF'
 [build.processing]
   skip_processing = true
-EOF
