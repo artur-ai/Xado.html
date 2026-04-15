@@ -94,13 +94,20 @@ img {
   gap: 14px;
   margin-top: 24px;
   padding: 0;
-  /* Grid автоматично робить елементи однакової висоти (stretch) */
 }
 
+/* ===== PRODUCT LINK ===== */
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  /* Робимо посилання гнучким контейнером, щоб воно тягнулося за сіткою */
+  display: flex; 
+}
+
+/* ===== PRODUCT CARD ===== */
 .product-card {
   display: flex;
   flex-direction: column;
-  /* Прибираємо justify-content: space-between, бо flex-grow у заголовку зробить це краще */
   background: white;
   border-left: 5px solid #d50000;
   border-radius: 12px;
@@ -108,14 +115,16 @@ img {
   padding: 14px;
   text-align: center;
   transition: transform 0.2s ease;
-  flex-grow: 1; /* Змушує картку зайняти всю висоту всередині .product-link */
-  min-height: 300px;
+  width: 100%; /* Обов'язково займає всю ширину посилання */
+  /* Картка заповнює все посилання, але не стискається менше свого контенту */
+  flex: 1 0 auto; 
 }
 
 .product-card:hover {
   transform: translateY(-4px);
 }
 
+/* ===== IMAGE ===== */
 .product-card .img-wrap {
   width: 100%;
   height: 140px;
@@ -123,7 +132,8 @@ img {
   align-items: center;
   justify-content: center;
   margin-bottom: 12px;
-  flex-shrink: 0;
+  /* Жорстко фіксуємо блок картинки, забороняємо стискатися */
+  flex: 0 0 auto; 
 }
 
 .product-card img {
@@ -132,16 +142,16 @@ img {
   object-fit: contain;
 }
 
+/* ===== TITLE ===== */
 .product-card h3 {
   font-size: 0.9rem;
-  margin-bottom: 12px; /* Трохи більший відступ від ціни */
+  margin-bottom: 16px; /* Надійний відступ від ціни */
   color: #111;
   line-height: 1.3;
   text-align: center;
-  /* Прибираємо flex-центрування, щоб текст не "вилазив" за межі */
   display: block; 
-  /* Дозволяє заголовку займати весь вільний простір і відштовхувати ціну вниз */
-  flex-grow: 1; 
+  /* Магія: текст може рости (1), не може стискатися (0), основа - авто (auto) */
+  flex: 1 0 auto; 
 }
 
 .product-card p {
@@ -173,10 +183,11 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* Притискає блок з ціною та об'ємом до самого низу картки */
+  /* Притискає блок до низу */
   margin-top: auto; 
-  margin-bottom: 0;
   gap: 6px;
+  /* Магія 2: блок ціни ніколи не стиснеться, навіть якщо тексту дуже багато */
+  flex: 0 0 auto; 
 }
 
 .volume {
@@ -194,16 +205,6 @@ img {
   color: #d50000;
   font-size: 1rem;
   white-space: nowrap;
-}
-
-/* ===== PRODUCT LINK ===== */
-.product-link {
-  text-decoration: none;
-  color: inherit;
-  /* Робимо посилання гнучким блоком на всю висоту */
-  display: flex; 
-  flex-direction: column;
-  height: 100%; 
 }
 
 /* ===== MAP ===== */
@@ -233,14 +234,14 @@ footer {
 
 /* ===== MEDIA QUERIES ===== */
 
-/* Мобільні телефони (до 480px) - додаткова оптимізація */
+/* Мобільні телефони (до 480px) */
 @media (max-width: 480px) {
   .product-card {
-    padding: 10px; /* Менші відступи, щоб дати більше місця тексту */
+    padding: 10px; 
   }
   
   .product-card h3 {
-    font-size: 0.8rem; /* Трохи менший шрифт для довгих назв */
+    font-size: 0.8rem; 
   }
   
   .price {
@@ -294,7 +295,8 @@ footer {
 
   .product-card {
     padding: 20px;
-    min-height: 340px;
+    /* Повертаємо мін-висоту для комп'ютерів, де тексту менше, щоб картки були красивими */
+    min-height: 340px; 
   }
 
   .product-card .img-wrap {
