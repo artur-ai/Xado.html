@@ -1,4 +1,4 @@
-/* ===== RESET & BASE ===== */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -163,15 +163,14 @@ img {
   hyphens: auto;
 }
 
-/* ===== БЛОК ЦІНИ ТА ОБ'ЄМУ ===== */
 .price-line {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Вирівнюємо елементи по нижньому краю */
+  align-items: flex-end;
   width: 100%;
   margin: 0;
   padding-top: 8px;
-  gap: 6px; /* Відстань між літрами і ціною, щоб не злипалися */
+  gap: 6px;
 }
 
 .volume {
@@ -182,19 +181,17 @@ img {
   color: #333;
   font-size: 0.75rem;
   white-space: nowrap;
-  flex-shrink: 0; /* Забороняємо стискати сірий квадратик з літрами */
+  flex-shrink: 0;
 }
 
 .price {
   font-weight: bold;
   color: #d50000;
-  font-size: 0.9rem; /* Трохи зменшили шрифт для великих цін */
+  font-size: 0.9rem;
   line-height: 1.2;
-  text-align: right; /* Якщо ціна розіб'ється на 2 рядки, вона буде притиснута вправо */
-  /* Ми прибрали white-space: nowrap; - тепер довга ціна може переноситися! */
+  text-align: right;
 }
 
-/* ===== MAP ===== */
 .map {
   margin: 40px auto;
   text-align: center;
@@ -209,7 +206,6 @@ img {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* ===== FOOTER ===== */
 footer {
   background: #222;
   color: #ccc;
@@ -219,11 +215,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* =========================================
-   АДАПТИВНІСТЬ (Медіа-запити)
-   ========================================= */
-
-/* ===== TABLET (540px+) ===== */
 @media (min-width: 540px) {
   .product-card {
     padding: 16px;
@@ -247,7 +238,6 @@ footer {
   }
 }
 
-/* ===== DESKTOP (768px+) ===== */
 @media (min-width: 768px) {
   .container {
     padding: 0 24px;
@@ -266,7 +256,7 @@ footer {
   }
 
   .product-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 колонки на планшеті/ПК */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
     margin-top: 30px;
   }
@@ -282,9 +272,8 @@ footer {
   }
 }
 
-/* ===== LARGE DESKTOP (1200px+) ===== */
 @media (min-width: 1200px) {
   .product-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 колонки на великому екрані */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
