@@ -97,11 +97,10 @@ img {
   /* Grid автоматично робить елементи однакової висоти (stretch) */
 }
 
-/* ===== PRODUCT CARD ===== */
 .product-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* Прибираємо justify-content: space-between, бо flex-grow у заголовку зробить це краще */
   background: white;
   border-left: 5px solid #d50000;
   border-radius: 12px;
@@ -109,7 +108,7 @@ img {
   padding: 14px;
   text-align: center;
   transition: transform 0.2s ease;
-  height: 100%; /* Картка розтягується на всю висоту ряду грида */
+  flex-grow: 1; /* Змушує картку зайняти всю висоту всередині .product-link */
   min-height: 300px;
 }
 
@@ -201,8 +200,10 @@ img {
 .product-link {
   text-decoration: none;
   color: inherit;
-  display: block;
-  height: 100%; /* Посилання теж має займати всю висоту картки */
+  /* Робимо посилання гнучким блоком на всю висоту */
+  display: flex; 
+  flex-direction: column;
+  height: 100%; 
 }
 
 /* ===== MAP ===== */
