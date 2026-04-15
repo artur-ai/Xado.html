@@ -135,14 +135,14 @@ img {
 
 .product-card h3 {
   font-size: 0.9rem;
-  margin-bottom: 8px;
+  margin-bottom: 12px; /* Трохи більший відступ від ціни */
   color: #111;
   line-height: 1.3;
-  min-height: 3.2rem;
-  display: flex;
-  align-items: center; /* Центрує текст по вертикалі */
-  justify-content: center;
-  overflow: visible; /* Дозволяє тексту показуватися повністю без обрізання */
+  text-align: center;
+  /* Прибираємо flex-центрування, щоб текст не "вилазив" за межі */
+  display: block; 
+  /* Дозволяє заголовку займати весь вільний простір і відштовхувати ціну вниз */
+  flex-grow: 1; 
 }
 
 .product-card p {
@@ -174,7 +174,9 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  /* Притискає блок з ціною та об'ємом до самого низу картки */
+  margin-top: auto; 
+  margin-bottom: 0;
   gap: 6px;
 }
 
