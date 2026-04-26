@@ -21,6 +21,7 @@ body {
 /* ===== КАРТКА ТОВАРУ ===== */
 .product-card,
 .product-detail {
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
   background: #fff;
@@ -28,15 +29,17 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   padding: 15px 12px;
+  overflow: hidden; /* Запобігає вилазанню тексту чи картинок */
 }
 
+/* Зображення тепер гарантовано слухняне */
 .product-card img,
 .product-detail img {
   display: block;
-  width: 60%;
-  max-width: 200px;
+  width: 100%;
+  max-width: 250px; /* На мобільному не більше 250px */
   height: auto;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 20px auto;
   border-radius: 8px;
   object-fit: contain;
 }
@@ -46,7 +49,7 @@ h1 {
   font-size: 20px;
   line-height: 1.3;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #111;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -57,7 +60,7 @@ h1 {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #d32f2f;
 }
 
@@ -65,13 +68,19 @@ h2 {
   color: #d32f2f;
   font-size: 18px;
   margin-top: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-p {
+/* Додали всі динамічні блоки, щоб вони стилізувалися як текст */
+p, 
+#p-description, 
+#p-usage, 
+#p-notes, 
+#p-extra {
   font-size: 15px;
   margin-bottom: 12px;
   text-align: left;
+  line-height: 1.5;
 }
 
 ul, ol {
@@ -94,6 +103,7 @@ table {
   border-collapse: collapse;
   margin: 16px 0;
   font-size: 14px;
+  background-color: #fff;
 }
 
 th, td {
@@ -111,8 +121,8 @@ th {
 /* ===== БЛОК КОНТАКТІВ ===== */
 .contact-info,
 #contact-info {
-  margin-top: 25px;
-  padding: 15px;
+  margin-top: 30px;
+  padding: 20px 15px;
   background-color: #fafafa;
   border-radius: 8px;
   border: 1px solid #eaeaea;
@@ -141,7 +151,7 @@ th {
 /* ===== КНОПКА "НАЗАД" ===== */
 .back-link {
   display: block;
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
   font-weight: bold;
   color: #d32f2f;
@@ -170,20 +180,26 @@ th {
 
   .product-card img,
   .product-detail img {
-    width: 50%;
-    max-width: 300px;
-    max-height: 400px;
-    margin-bottom: 25px;
+    max-width: 350px; /* На ПК картинка може бути більшою */
+    margin-bottom: 30px;
   }
 
   h1 { font-size: 28px; margin-bottom: 15px; }
-  .price { font-size: 24px; margin-bottom: 20px; }
+  .price { font-size: 24px; margin-bottom: 25px; }
   h2 { font-size: 22px; margin-top: 32px; }
 
-  p, ul li, ol li { font-size: 16px; line-height: 1.6; }
+  /* Збільшуємо шрифт динамічних блоків для ПК */
+  p, ul li, ol li,
+  #p-description, 
+  #p-usage, 
+  #p-notes, 
+  #p-extra { 
+    font-size: 16px; 
+    line-height: 1.6; 
+  }
 
   table { font-size: 15px; }
-  th, td { padding: 10px 14px; }
+  th, td { padding: 12px 14px; }
 
   .contact-info,
   #contact-info {
