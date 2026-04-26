@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Завантаження...</title>
+  <link rel="icon" type="image/png" href="../../images/XADO-1-280x280.png">
+  <link rel="stylesheet" href="olyva.css">
+</head>
+<body>
+  <div class="product-detail">
+    
+    <img id="p-img" src="" alt="Завантаження..." class="product-image" style="display: none;" />
+    <h1 id="p-title">Завантаження інформації про товар....></h1>
+    <p class="price" id="p-price"></p>
+    <p><strong id="p-volume-label" style="display: none;">Об’єм:</strong> <span id="p-volume"></span></p>
+
+    <div id="block-description" style="display: none;">
+      <h2>Опис</h2>
+      <div id="p-description"></div>
+    </div>
+
+    <div id="block-usage" style="display: none;">
+      <h2>Застосування</h2>
+      <div id="p-usage"></div>
+    </div>
+
+    <div id="block-notes" style="display: none;">
+      <h2>Примітки</h2>
+      <div id="p-notes"></div>
+    </div>
+
+    <div id="block-extra" style="display: none;">
+      <h2> Додатково</h2>
+      <div id="p-extra"></div>
+    </div>
+
+    <section id="contact-info" class="contact-info">
+      <h2 style="margin-top: 0;">Зв'яжіться з нами</h2>
+      <p>Якщо ви хочете дізнатись про наявність товару, отримати консультацію або поставити будь-які питання щодо продукції XADO — ми завжди готові допомогти.</p>
+      <p><strong>Телефон для зв’язку:</strong> <a href="tel:+380505850726" style="color: red; text-decoration: none;">+38 (050) 585-07-26</a></p>
+      <p>Ми допоможемо обрати саме те, що потрібно вашому автомобілю.</p>
+      <p>Звертайтеся, ми цінуємо кожного клієнта!</p>
+    </section>
+
+    <a href="javascript:history.back()" class="back-link">← Назад до каталогу</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  
+  <script>
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_R713RMWpCvdUBX-jcJmMuFY724knArV8uP_A4UCMtx-v2f3sdfYq83wZijAv76hb1eXHTuWBKt/pub?gid=1130980914&single=true&output=csv'; 
+
+    function loadProduct() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+
+      if (!productId) {
+        document.getElementById('p-title').innerText = "Товар не знайдено (Немає ID в посиланні)";
+        return;
+      }
+      Papa.parse(sheetUrl, {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+          const products = results.data;
+          
+          const product = products.find(item => item['ID'] === productId);
+
+          if (product) {
+            document.getElementById('page-title').innerText = product['Назва'];
+            document.getElementById('p-title').innerText = product['Назва'];
+            document.getElementById('p-price').innerText = `Ціна: ${product['Ціна']} грн`;
+            
+            document.getElementById('p-volume').innerText = product['Обєм'];
+            document.getElementById('p-volume-label').style.display = 'inline';
+
+            const imgEl = document.getElementById('p-img');
+            imgEl.src = `../../catalog/images_of_products/revitalizanty/${product['Картинка']}`;
+            imgEl.style.display = 'block';
+            imgEl.alt = product['Назва'];
+
+
+            if (product['Опис']) {
+              document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br>');
+              document.getElementById('block-description').style.display = 'block';
+            }
+
+            if (product['Застосування']) {
+              document.getElementById('p-usage').innerHTML = product['Застосування'].replace(/\n/g, '<br>');
+              document.getElementById('block-usage').style.display = 'block';
+            }
+
+            if (product['Примітки']) {
+              document.getElementById('p-notes').innerHTML = product['Примітки'].replace(/\n/g, '<br>');
+              document.getElementById('block-notes').style.display = 'block';
+            }
+
+            if (product['Додатково_HTML']) {
+              document.getElementById('p-extra').innerHTML = product['Додатково_HTML'];
+              document.getElementById('block-extra').style.display = 'block';
+            }
+
+          } else {
+            document.getElementById('p-title').innerText = "На жаль, такий товар не знайдено.";
+          }
+        }
+      });
+    }
+
+    window.onload = loadProduct;
+  </script>
+</body>
+</html>
