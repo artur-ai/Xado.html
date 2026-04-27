@@ -11,7 +11,7 @@
   <div class="product-detail">
     
     <img id="p-img" src="" alt="Завантаження..." class="product-image" style="display: none;" />
-    <h1 id="p-title">Завантаження інформації про товар....></h1>
+    <h1 id="p-title">Завантаження інформації про товар...</h1>
     <p class="price" id="p-price"></p>
     <p><strong id="p-volume-label" style="display: none;">Об’єм:</strong> <span id="p-volume"></span></p>
 
@@ -31,7 +31,7 @@
     </div>
 
     <div id="block-extra" style="display: none;">
-      <h2> Технічна інформація</h2>
+      <h2>Технічна інформація</h2>
       <div id="p-extra"></div>
     </div>
 
@@ -77,10 +77,9 @@
             document.getElementById('p-volume-label').style.display = 'inline';
 
             const imgEl = document.getElementById('p-img');
-            imgEl.src = `../../catalog/images_of_products/revitalizanty/${product['Картинка']}`;
+            imgEl.src = `../../catalog/images_of_products/оливи/${product['Картинка']}`;
             imgEl.style.display = 'block';
             imgEl.alt = product['Назва'];
-
 
             if (product['Опис']) {
               document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br>');
