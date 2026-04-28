@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+      <html lang="uk">
+      <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title id="page-title">Завантаження...</title>
+  <link rel="icon" type="image/png" href="../../images/XADO-1-280x280.png">
+  <link rel="stylesheet" href="../product.css">
+</head>
+<body>
+<div class="product-detail">
+
+  <img id="p-img" src="" alt="Завантаження..." class="product-image" style="display: none;" />
+  <h1 id="p-title">Завантаження інформації...</h1>
+  <div class="price" id="p-price"></div>
+  <p><strong id="p-volume-label" style="display: none;">Об’єм:</strong> <span id="p-volume"></span></p>
+
+  <div id="block-description" style="display: none;">
+    <div id="p-description"></div>
+  </div>
+
+  <div id="block-features" style="display: none;">
+    <ul id="p-features"></ul>
+  </div>
+
+  <div id="block-requirements" style="display: none;">
+    <h2>Вимоги та допуски</h2>
+    <ul id="p-requirements"></ul>
+  </div>
+
+  <div id="block-dilution" style="display: none;">
+    <h2>Розведення та використання</h2>
+    <div id="p-dilution"></div>
+  </div>
+
+  <div id="block-notes" style="display: none;">
+    <h2>Примітки та Технічні характеристики</h2>
+    <div id="p-notes"></div>
+  </div>
+
+  <section id="contact-info" class="contact-info">
+    <h2>Зв'яжіться з нами</h2>
+    <p>Якщо ви хочете дізнатись про наявність товару або отримати консультацію — ми завжди готові допомогти.</p>
+    <p><strong>Телефон:</strong> <a href="tel:+380505850726" style="color: red; text-decoration: none;">+38 (050) 585-07-26</a></p>
+  </section>
+
+  <a href="javascript:history.back()" class="back-link">← Назад до каталогу</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+<script>
+  const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_R713RMWpCvdUBX-jcJmMuFY724knArV8uP_A4UCMtx-v2f3sdfYq83wZijAv76hb1eXHTuWBKt/pub?gid=1042162916&single=true&output=csv';
+
+  function loadProduct() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    if (!productId) {
+      document.getElementById('p-title').innerText = "Товар не знайдено";
+      return;
+    }
+
+    Papa.parse(sheetUrl, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: function(results) {
+        const product = results.data.find(item => item['ID'] === productId);
+
+        if (product) {
+          document.getElementById('page-title').innerText = product['Назва'];
+          document.getElementById('p-title').innerText = product['Назва'];
+          document.getElementById('p-price').innerText = `Ціна: ${product['Ціна']} грн`;
+          document.getElementById('p-volume').innerText = product['Обєм'];
+          document.getElementById('p-volume-label').style.display = 'inline';
+
+          // Картинка (папка technical_ridini)
+          const imgEl = document.getElementById('p-img');
+          imgEl.src = `../../catalog/images_of_products/technical_ridini/${product['Картинка']}`;
+          imgEl.style.display = 'block';
+
+          // Опис
+          if (product['Опис']) {
+            document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br><br>');
+            document.getElementById('block-description').style.display = 'block';
+          }
+
+          // Переваги (списком)
+          if (product['Переваги']) {
+            const list = product['Переваги'].split('\n').map(item => `<li>${item}</li>`).join('');
+            document.getElementById('p-features').innerHTML = list;
+            document.getElementById('block-features').style.display = 'block';
+          }
+
+          // Вимоги
+          if (product['Вимоги']) {
+            const reqs = product['Вимоги'].split('\n').map(item => `<li>${item}</li>`).join('');
+            document.getElementById('p-requirements').innerHTML = reqs;
+            document.getElementById('block-requirements').style.display = 'block';
+          }
+
+          // Розведення (HTML таблиця)
+          if (product['Розведення_HTML']) {
+            document.getElementById('p-dilution').innerHTML = product['Розведення_HTML'];
+            document.getElementById('block-dilution').style.display = 'block';
+          }
+
+          // Примітки (Технічні характеристики)
+          if (product['Примітки_HTML']) {
+            document.getElementById('p-notes').innerHTML = product['Примітки_HTML'];
+            document.getElementById('block-notes').style.display = 'block';
+          }
+        }
+      }
+    });
+  }
+  window.onload = loadProduct;
+</script>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>
