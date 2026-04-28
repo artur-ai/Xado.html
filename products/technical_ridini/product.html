@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-      <html lang="uk">
-      <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title id="page-title">Завантаження...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title id="page-title">Завантаження...</title>
   <link rel="icon" type="image/png" href="../../images/XADO-1-280x280.png">
-  <link rel="stylesheet" href="../product.css">
+  <link rel="stylesheet" href="technical_ridini.css">
 </head>
 <body>
 <div class="product-detail">
@@ -54,12 +50,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
+  // Твоє правильне посилання на таблицю "Технічні рідини"
   const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_R713RMWpCvdUBX-jcJmMuFY724knArV8uP_A4UCMtx-v2f3sdfYq83wZijAv76hb1eXHTuWBKt/pub?gid=1042162916&single=true&output=csv';
 
   function loadProduct() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
+    // Перевірка 1: чи є ID в посиланні
     if (!productId) {
       if (document.getElementById('p-title')) document.getElementById('p-title').innerText = "Товар не знайдено (Немає ID в посиланні)";
       return;
@@ -70,15 +68,18 @@
       header: true,
       skipEmptyLines: true,
       complete: function(results) {
+        // Шукаємо товар у таблиці
         const product = results.data.find(item => item['ID'] === productId);
 
         if (product) {
+          // Безпечно додаємо текст тільки якщо елементи існують в HTML
           if (document.getElementById('page-title')) document.getElementById('page-title').innerText = product['Назва'];
           if (document.getElementById('p-title')) document.getElementById('p-title').innerText = product['Назва'];
           if (document.getElementById('p-price')) document.getElementById('p-price').innerText = `Ціна: ${product['Ціна']} грн`;
           if (document.getElementById('p-volume')) document.getElementById('p-volume').innerText = product['Обєм'];
           if (document.getElementById('p-volume-label')) document.getElementById('p-volume-label').style.display = 'inline';
 
+          // Картинка
           const imgEl = document.getElementById('p-img');
           if (imgEl && product['Картинка']) {
             imgEl.src = `../../catalog/images_of_products/technical_ridini/${product['Картинка']}`;
@@ -86,35 +87,41 @@
             imgEl.alt = product['Назва'];
           }
 
+          // Опис
           if (product['Опис'] && document.getElementById('p-description')) {
             document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br><br>');
             document.getElementById('block-description').style.display = 'block';
           }
 
+          // Переваги
           if (product['Переваги'] && document.getElementById('p-features')) {
             const list = product['Переваги'].split('\n').map(item => `<li>${item}</li>`).join('');
             document.getElementById('p-features').innerHTML = list;
             document.getElementById('block-features').style.display = 'block';
           }
 
+          // Вимоги
           if (product['Вимоги'] && document.getElementById('p-requirements')) {
             const reqs = product['Вимоги'].split('\n').map(item => `<li>${item}</li>`).join('');
             document.getElementById('p-requirements').innerHTML = reqs;
             document.getElementById('block-requirements').style.display = 'block';
           }
 
+          // Розведення
           if (product['Розведення_HTML'] && document.getElementById('p-dilution')) {
             document.getElementById('p-dilution').innerHTML = product['Розведення_HTML'];
             document.getElementById('block-dilution').style.display = 'block';
           }
 
+          // Примітки
           if (product['Примітки_HTML'] && document.getElementById('p-notes')) {
             document.getElementById('p-notes').innerHTML = product['Примітки_HTML'];
             document.getElementById('block-notes').style.display = 'block';
           }
 
         } else {
-          if (document.getElementById('p-title')) document.getElementById('p-title').innerText = "На жаль, такий товар не знайдено.";
+          // Перевірка 2: ID є в посиланні, але такого товару немає в Гугл Таблиці
+          if (document.getElementById('p-title')) document.getElementById('p-title').innerText = "На жаль, такий товар не знайдено в базі.";
         }
       }
     });
@@ -122,10 +129,5 @@
 
   window.onload = loadProduct;
 </script>
-</body>
-</html></title>
-</head>
-<body>
-
 </body>
 </html>
