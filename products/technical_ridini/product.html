@@ -61,7 +61,7 @@
     const productId = urlParams.get('id');
 
     if (!productId) {
-      document.getElementById('p-title').innerText = "Товар не знайдено";
+      if (document.getElementById('p-title')) document.getElementById('p-title').innerText = "Товар не знайдено (Немає ID в посиланні)";
       return;
     }
 
@@ -73,52 +73,53 @@
         const product = results.data.find(item => item['ID'] === productId);
 
         if (product) {
-          document.getElementById('page-title').innerText = product['Назва'];
-          document.getElementById('p-title').innerText = product['Назва'];
-          document.getElementById('p-price').innerText = `Ціна: ${product['Ціна']} грн`;
-          document.getElementById('p-volume').innerText = product['Обєм'];
-          document.getElementById('p-volume-label').style.display = 'inline';
+          if (document.getElementById('page-title')) document.getElementById('page-title').innerText = product['Назва'];
+          if (document.getElementById('p-title')) document.getElementById('p-title').innerText = product['Назва'];
+          if (document.getElementById('p-price')) document.getElementById('p-price').innerText = `Ціна: ${product['Ціна']} грн`;
+          if (document.getElementById('p-volume')) document.getElementById('p-volume').innerText = product['Обєм'];
+          if (document.getElementById('p-volume-label')) document.getElementById('p-volume-label').style.display = 'inline';
 
-          // Картинка (папка technical_ridini)
           const imgEl = document.getElementById('p-img');
-          imgEl.src = `../../catalog/images_of_products/technical_ridini/${product['Картинка']}`;
-          imgEl.style.display = 'block';
+          if (imgEl && product['Картинка']) {
+            imgEl.src = `../../catalog/images_of_products/technical_ridini/${product['Картинка']}`;
+            imgEl.style.display = 'block';
+            imgEl.alt = product['Назва'];
+          }
 
-          // Опис
-          if (product['Опис']) {
+          if (product['Опис'] && document.getElementById('p-description')) {
             document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br><br>');
             document.getElementById('block-description').style.display = 'block';
           }
 
-          // Переваги (списком)
-          if (product['Переваги']) {
+          if (product['Переваги'] && document.getElementById('p-features')) {
             const list = product['Переваги'].split('\n').map(item => `<li>${item}</li>`).join('');
             document.getElementById('p-features').innerHTML = list;
             document.getElementById('block-features').style.display = 'block';
           }
 
-          // Вимоги
-          if (product['Вимоги']) {
+          if (product['Вимоги'] && document.getElementById('p-requirements')) {
             const reqs = product['Вимоги'].split('\n').map(item => `<li>${item}</li>`).join('');
             document.getElementById('p-requirements').innerHTML = reqs;
             document.getElementById('block-requirements').style.display = 'block';
           }
 
-          // Розведення (HTML таблиця)
-          if (product['Розведення_HTML']) {
+          if (product['Розведення_HTML'] && document.getElementById('p-dilution')) {
             document.getElementById('p-dilution').innerHTML = product['Розведення_HTML'];
             document.getElementById('block-dilution').style.display = 'block';
           }
 
-          // Примітки (Технічні характеристики)
-          if (product['Примітки_HTML']) {
+          if (product['Примітки_HTML'] && document.getElementById('p-notes')) {
             document.getElementById('p-notes').innerHTML = product['Примітки_HTML'];
             document.getElementById('block-notes').style.display = 'block';
           }
+
+        } else {
+          if (document.getElementById('p-title')) document.getElementById('p-title').innerText = "На жаль, такий товар не знайдено.";
         }
       }
     });
   }
+
   window.onload = loadProduct;
 </script>
 </body>
