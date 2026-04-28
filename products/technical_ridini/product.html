@@ -5,43 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title id="page-title">Завантаження...</title>
   <link rel="icon" type="image/png" href="../../images/XADO-1-280x280.png">
-  <link rel="stylesheet" href="technical_ridini.css">
+  <link rel="stylesheet" href="../product.css">
 </head>
 <body>
 <div class="product-detail">
 
   <img id="p-img" src="" alt="Завантаження..." class="product-image" style="display: none;" />
-  <h1 id="p-title">Завантаження інформації...</h1>
-  <div class="price" id="p-price"></div>
+  <h1 id="p-title">Завантаження інформації про товар...</h1>
+  <p class="price" id="p-price"></p>
   <p><strong id="p-volume-label" style="display: none;">Об’єм:</strong> <span id="p-volume"></span></p>
 
   <div id="block-description" style="display: none;">
+    <h2>Опис</h2>
     <div id="p-description"></div>
   </div>
 
-  <div id="block-features" style="display: none;">
-    <ul id="p-features"></ul>
-  </div>
-
-  <div id="block-requirements" style="display: none;">
-    <h2>Вимоги та допуски</h2>
-    <ul id="p-requirements"></ul>
-  </div>
-
-  <div id="block-dilution" style="display: none;">
-    <h2>Розведення та використання</h2>
-    <div id="p-dilution"></div>
+  <div id="block-usage" style="display: none;">
+    <h2>Переваги</h2>
+    <div id="p-usage"></div>
   </div>
 
   <div id="block-notes" style="display: none;">
-    <h2>Примітки та Технічні характеристики</h2>
+    <h2>Вимоги та допуски</h2>
     <div id="p-notes"></div>
   </div>
 
+  <div id="block-extra" style="display: none;">
+    <h2>Розведення та використання</h2>
+    <div id="p-extra"></div>
+  </div>
+
+  <div id="block-additional" style="display: none;">
+    <h2>Примітки та Технічні характеристики</h2>
+    <div id="p-additional"></div>
+  </div>
+
   <section id="contact-info" class="contact-info">
-    <h2>Зв'яжіться з нами</h2>
-    <p>Якщо ви хочете дізнатись про наявність товару або отримати консультацію — ми завжди готові допомогти.</p>
-    <p><strong>Телефон:</strong> <a href="tel:+380505850726" style="color: red; text-decoration: none;">+38 (050) 585-07-26</a></p>
+    <h2 style="margin-top: 0;">Зв'яжіться з нами</h2>
+    <p>Якщо ви хочете дізнатись про наявність товару, отримати консультацію або поставити будь-які питання щодо продукції XADO — ми завжди готові допомогти.</p>
+    <p><strong>Телефон для зв’язку:</strong> <a href="tel:+380505850726" style="color: red; text-decoration: none;">+38 (050) 585-07-26</a></p>
+    <p>Ми допоможемо обрати саме те, що потрібно вашому автомобілю.</p>
+    <p>Звертайтеся, ми цінуємо кожного клієнта!</p>
   </section>
 
   <a href="javascript:history.back()" class="back-link">← Назад до каталогу</a>
@@ -50,16 +54,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
-  // Твоє правильне посилання на таблицю "Технічні рідини"
+  // Посилання на таблицю "Технічні рідини"
   const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRpe_R713RMWpCvdUBX-jcJmMuFY724knArV8uP_A4UCMtx-v2f3sdfYq83wZijAv76hb1eXHTuWBKt/pub?gid=1042162916&single=true&output=csv';
 
   function loadProduct() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
-    // Перевірка 1: чи є ID в посиланні
     if (!productId) {
-      if (document.getElementById('p-title')) document.getElementById('p-title').innerText = "Товар не знайдено (Немає ID в посиланні)";
+      document.getElementById('p-title').innerText = "Товар не знайдено (Немає ID в посиланні)";
       return;
     }
 
@@ -68,60 +71,50 @@
       header: true,
       skipEmptyLines: true,
       complete: function(results) {
-        // Шукаємо товар у таблиці
-        const product = results.data.find(item => item['ID'] === productId);
+        const products = results.data;
+        const product = products.find(item => item['ID'] === productId);
 
         if (product) {
-          // Безпечно додаємо текст тільки якщо елементи існують в HTML
-          if (document.getElementById('page-title')) document.getElementById('page-title').innerText = product['Назва'];
-          if (document.getElementById('p-title')) document.getElementById('p-title').innerText = product['Назва'];
-          if (document.getElementById('p-price')) document.getElementById('p-price').innerText = `Ціна: ${product['Ціна']} грн`;
-          if (document.getElementById('p-volume')) document.getElementById('p-volume').innerText = product['Обєм'];
-          if (document.getElementById('p-volume-label')) document.getElementById('p-volume-label').style.display = 'inline';
+          document.getElementById('page-title').innerText = product['Назва'];
+          document.getElementById('p-title').innerText = product['Назва'];
+          document.getElementById('p-price').innerText = `Ціна: ${product['Ціна']} грн`;
 
-          // Картинка
+          document.getElementById('p-volume').innerText = product['Обєм'];
+          document.getElementById('p-volume-label').style.display = 'inline';
+
           const imgEl = document.getElementById('p-img');
-          if (imgEl && product['Картинка']) {
-            imgEl.src = `../../catalog/images_of_products/technical_ridini/${product['Картинка']}`;
-            imgEl.style.display = 'block';
-            imgEl.alt = product['Назва'];
-          }
+          // Шлях до картинки в папці technical_ridini
+          imgEl.src = `../../catalog/images_of_products/technical_ridini/${product['Картинка']}`;
+          imgEl.style.display = 'block';
+          imgEl.alt = product['Назва'];
 
-          // Опис
-          if (product['Опис'] && document.getElementById('p-description')) {
-            document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br><br>');
+          if (product['Опис']) {
+            document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br>');
             document.getElementById('block-description').style.display = 'block';
           }
 
-          // Переваги
-          if (product['Переваги'] && document.getElementById('p-features')) {
-            const list = product['Переваги'].split('\n').map(item => `<li>${item}</li>`).join('');
-            document.getElementById('p-features').innerHTML = list;
-            document.getElementById('block-features').style.display = 'block';
+          if (product['Переваги']) {
+            document.getElementById('p-usage').innerHTML = product['Переваги'].replace(/\n/g, '<br>');
+            document.getElementById('block-usage').style.display = 'block';
           }
 
-          // Вимоги
-          if (product['Вимоги'] && document.getElementById('p-requirements')) {
-            const reqs = product['Вимоги'].split('\n').map(item => `<li>${item}</li>`).join('');
-            document.getElementById('p-requirements').innerHTML = reqs;
-            document.getElementById('block-requirements').style.display = 'block';
-          }
-
-          // Розведення
-          if (product['Розведення_HTML'] && document.getElementById('p-dilution')) {
-            document.getElementById('p-dilution').innerHTML = product['Розведення_HTML'];
-            document.getElementById('block-dilution').style.display = 'block';
-          }
-
-          // Примітки
-          if (product['Примітки_HTML'] && document.getElementById('p-notes')) {
-            document.getElementById('p-notes').innerHTML = product['Примітки_HTML'];
+          if (product['Вимоги']) {
+            document.getElementById('p-notes').innerHTML = product['Вимоги'].replace(/\n/g, '<br>');
             document.getElementById('block-notes').style.display = 'block';
           }
 
+          if (product['Розведення_HTML']) {
+            document.getElementById('p-extra').innerHTML = product['Розведення_HTML'];
+            document.getElementById('block-extra').style.display = 'block';
+          }
+
+          if (product['Примітки_HTML']) {
+            document.getElementById('p-additional').innerHTML = product['Примітки_HTML'];
+            document.getElementById('block-additional').style.display = 'block';
+          }
+
         } else {
-          // Перевірка 2: ID є в посиланні, але такого товару немає в Гугл Таблиці
-          if (document.getElementById('p-title')) document.getElementById('p-title').innerText = "На жаль, такий товар не знайдено в базі.";
+          document.getElementById('p-title').innerText = "На жаль, такий товар не знайдено.";
         }
       }
     });
