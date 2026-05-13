@@ -372,3 +372,10 @@ footer {
     padding: 170px 60px;
   }
 }
+
+.card-rev  { background-image: url('images/revitalizant-new.jpg'); }
+.card-oil  { background-image: url('images/olyva.jpg'); }
+.card-tech { background-image: url('images/tecnichni.jpg'); }
+.card-mast { background-image: url('images/mastyla.jpg'); }
+.card-chem { background-image: url('images/avtoximia.jpg'); }
+.card-cosm { background-image: url('images/avtokosmetika.jpg'); }
