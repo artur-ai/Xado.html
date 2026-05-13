@@ -80,7 +80,7 @@
                     imgEl.alt = product['Назва'];
 
                     if (product['Опис']) {
-                        document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br><br>');
+                        document.getElementById('p-description').innerHTML = product['Опис'].replace(/\n/g, '<br>');
                         document.getElementById('block-description').style.display = 'block';
                     }
 
