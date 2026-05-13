@@ -196,7 +196,6 @@ section {
 /* ===== CAROUSEL ===== */
 .carousel-wrapper {
   position: relative;
-  overflow: hidden;
 }
 
 .carousel-container {
