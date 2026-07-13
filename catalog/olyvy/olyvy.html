@@ -111,7 +111,6 @@
       skipEmptyLines: true,
       complete: function(results) {
         allProducts = results.data;
-        // Одразу малюємо всі товари і підсвічуємо кнопку
         const allBtn = document.querySelector('.filter-btn.active-filter');
         renderProducts('all', allBtn);
       }
@@ -124,7 +123,6 @@
     let html = '';
     let productsFound = 0;
 
-    // Підсвічуємо натиснуту кнопку
     if(clickedButton) {
       document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active-filter'));
       clickedButton.classList.add('active-filter');
